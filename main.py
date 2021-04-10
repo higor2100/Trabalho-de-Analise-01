@@ -1,22 +1,19 @@
-from array import array
-
-
-def maximo_entre_arrays(vet, inicio, meio, final):
+def maximoEntreListas(vet, inicio, meio, final):
     soma = 0
     esq = -float("inf")
     for i in range(meio, inicio - 1, -1):
         soma += vet[i]
         if soma > esq:
             esq = soma
-            max_esq = i
-    right_sum = -float("inf")
+            maxEsq = i
+    dirSoma = -float("inf")
     soma = 0
     for j in range(meio + 1, final + 1):
         soma += vet[j]
-        if soma > right_sum:
-            right_sum = soma
-            max_dir = j
-    return max_esq, max_dir, esq + right_sum
+        if soma > dirSoma:
+            dirSoma = soma
+            maxDir = j
+    return maxEsq, maxDir, esq + dirSoma
 
 
 def somaMaxima(vet, inicio, final):
@@ -24,20 +21,19 @@ def somaMaxima(vet, inicio, final):
         return inicio, final, vet[inicio]
     else:
         meio = round((inicio + final) / 2 - 0.5)
-        inicio_esq, final_esq, esq = somaMaxima(vet, inicio, meio)
-        inicio_dir, final_dir, soma_dir = somaMaxima(vet, meio + 1, final)
-        inicio, final, soma = maximo_entre_arrays(vet, inicio, meio, final)
+        inicioEsq, finalEsq, esq = somaMaxima(vet, inicio, meio)
+        inicioDir, finalDir, somaDir = somaMaxima(vet, meio + 1, final)
+        inicio, final, soma = maximoEntreListas(vet, inicio, meio, final)
 
-        if esq >= soma_dir and esq >= soma:
-            return inicio_esq, final_esq, esq
-        elif soma_dir >= esq and soma_dir >= soma:
-            return inicio_dir, final_dir, soma_dir
+       
+        if somaDir >= esq and somaDir >= soma:
+            return inicioDir, finalDir, somaDir
+        elif esq >= somaDir and esq >= soma:
+            return inicioEsq, finalEsq, esq
         else:
             return inicio, final, soma
 
-
-if __name__ == '__main__':
-    vec1 = [21, 10, -50, 2, 27, -16, -4, 10]
-    vec2 = [-16, 20, -10, 12, 27, -6, -4, 8]
-    print(somaMaxima(vec1, 0, 7))
-    print(somaMaxima(vec2, 0, 7))
+vec1 = [10, 13, -30, 1, 25, -8, -14, 1]
+vec2 = [-16, 20, -10, 12, 27, -6, -4, 8]
+print(somaMaxima(vec1, 0, 7))
+print(somaMaxima(vec2, 0, 7))
