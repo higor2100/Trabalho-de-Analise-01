@@ -1,17 +1,17 @@
 from array import array
 
 
-def maximo_entre_arrays(vet, ini, meio, fim):
+def maximo_entre_arrays(vet, inicio, meio, final):
     soma = 0
     esq = -float("inf")
-    for i in range(meio, ini - 1, -1):
+    for i in range(meio, inicio - 1, -1):
         soma += vet[i]
         if soma > esq:
             esq = soma
             max_esq = i
     right_sum = -float("inf")
     soma = 0
-    for j in range(meio + 1, fim + 1):
+    for j in range(meio + 1, final + 1):
         soma += vet[j]
         if soma > right_sum:
             right_sum = soma
@@ -19,21 +19,21 @@ def maximo_entre_arrays(vet, ini, meio, fim):
     return max_esq, max_dir, esq + right_sum
 
 
-def somaMaxima(vet, ini, fim):
-    if ini == fim:
-        return ini, fim, vet[ini]
+def somaMaxima(vet, inicio, final):
+    if inicio == final:
+        return inicio, final, vet[inicio]
     else:
-        meio = round((ini + fim) / 2 - 0.5)
-        ini_esq, fim_esq, esq = somaMaxima(vet, ini, meio)
-        ini_dir, fim_dir, soma_dir = somaMaxima(vet, meio + 1, fim)
-        ini, fim, soma = maximo_entre_arrays(vet, ini, meio, fim)
+        meio = round((inicio + final) / 2 - 0.5)
+        inicio_esq, final_esq, esq = somaMaxima(vet, inicio, meio)
+        inicio_dir, final_dir, soma_dir = somaMaxima(vet, meio + 1, final)
+        inicio, final, soma = maximo_entre_arrays(vet, inicio, meio, final)
 
         if esq >= soma_dir and esq >= soma:
-            return ini_esq, fim_esq, esq
+            return inicio_esq, final_esq, esq
         elif soma_dir >= esq and soma_dir >= soma:
-            return ini_dir, fim_dir, soma_dir
+            return inicio_dir, final_dir, soma_dir
         else:
-            return ini, fim, soma
+            return inicio, final, soma
 
 
 if __name__ == '__main__':
