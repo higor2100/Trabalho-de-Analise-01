@@ -1,10 +1,10 @@
 # Trabalho-de-Analise-01
  
 O código fez uma procura em um vetor pela soma do maior elemento possível, utilizando o método de divisão e conquista apresentado em aula.
-Durante a execução, o usuário deve informar pelo próprio código os valores do vetor. E o vetor deve ser passado como um parâmetro da função somaMaxima como o vetor, o início do índice e o final do índice, como exemplo abaixo:
+Durante a execução, o usuário deve informar pelo próprio código os valores do vetor. E o vetor deve ser passado como um parâmetro da função somaDoMaximo como o vetor, o início do índice e o final do índice, como exemplo abaixo:
 ```xml
     seuVetor = ["""Seus valores em inteiro"""]
-    print(somaMaxima(seuVetor, indiceInicial, indiceFinal))
+    print(somaDoMaximo(seuVetor, indiceInicial, indiceFinal))
 ```
 No código disponibilizado, foi utilizado o seguinte parâmetro:
 ```xml

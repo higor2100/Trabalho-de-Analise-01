@@ -16,13 +16,13 @@ def maximoEntreListas(vet, inicio, meio, final):
     return maxEsq, maxDir, esq + dirSoma
 
 
-def somaMaxima(vet, inicio, final):
+def somaDoMaxima(vet, inicio, final):
     if inicio == final:
         return inicio, final, vet[inicio]
     else:
         meio = round((inicio + final) / 2 - 0.5)
-        inicioEsq, finalEsq, esq = somaMaxima(vet, inicio, meio)
-        inicioDir, finalDir, somaDir = somaMaxima(vet, meio + 1, final)
+        inicioEsq, finalEsq, esq = somaDoMaxima(vet, inicio, meio)
+        inicioDir, finalDir, somaDir = somaDoMaxima(vet, meio + 1, final)
         inicio, final, soma = maximoEntreListas(vet, inicio, meio, final)
 
        
@@ -35,5 +35,5 @@ def somaMaxima(vet, inicio, final):
 
 vec1 = [10, 13, -30, 1, 25, -8, -14, 1]
 vec2 = [-16, 20, -10, 12, 27, -6, -4, 8]
-print(somaMaxima(vec1, 0, 7))
-print(somaMaxima(vec2, 0, 7))
+print(somaDoMaxima(vec1, 0, 7))
+print(somaDoMaxima(vec2, 0, 7))
