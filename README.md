@@ -8,7 +8,7 @@ Durante a execução, o usuário deve informar pelo próprio código os valores 
 ```
 No código disponibilizado, foi utilizado o seguinte parâmetro:
 ```xml
-Vetor1 = [20, -30, 15, -10, 30, -20, -20, 30]
+Vetor1 = [10, 13, -30, 1, 25, -8, -14, 1]
 Vetor2 = [-16, 20, -10, 12, 27, -6, -4, 8]
 ```
 E para imprimir a saída utilizamos o parâmetro de print do Python para mostrar o resultado final:
