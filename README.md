@@ -13,6 +13,6 @@ Vetor2 = [-16, 20, -10, 12, 27, -6, -4, 8]
 ```
 E para imprimir a saída utilizamos o parâmetro de print do Python para mostrar o resultado final:
 ```xml
-(0, 1, 31)
+(3, 4, 26)
 (1, 4, 49)
 ```
